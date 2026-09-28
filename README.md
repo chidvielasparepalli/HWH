@@ -71,11 +71,24 @@ Memory
 Install:
 
 1. Git
-   Check with: git --version
+Check with:
+
+```bash
+git --version
+```
 
 2. Python 3.10 or newer
-   Check with: python --version
-   On Windows, py --version also works.
+Check with:
+
+```bash
+python --version
+```
+
+On Windows, you can also use:
+
+```powershell
+py --version
+```
 
 3. Internet access
    The application connects to Hindsight Cloud at:
@@ -151,9 +164,11 @@ cp .env.example .env
 Open .env and set:
 
 ```dotenv
+```dotenv
 HINDSIGHT_URL=https://api.hindsight.vectorize.io
 HINDSIGHT_API_KEY=YOUR_HINDSIGHT_API_KEY
 HINDSIGHT_BANK_ID=aegis-code-immune
+```
 ```
 
 Use the Hindsight API key provided to your team.
@@ -379,8 +394,11 @@ python --version
 py --version
 ```
 
-If py works on Windows, create the environment with:
-  py -m venv .venv
+If `py` works on Windows, create the environment with:
+
+```powershell
+py -m venv .venv
+```
 
 ### PowerShell blocks activation
 
