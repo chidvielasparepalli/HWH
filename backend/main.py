@@ -7,6 +7,7 @@ from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 from hindsight_client import Hindsight
 
@@ -34,6 +35,8 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+app.mount("/static", StaticFiles(directory=FRONTEND_DIR), name="static")
 
 
 class IncidentRequest(BaseModel):
