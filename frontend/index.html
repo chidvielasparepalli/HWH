@@ -3,57 +3,86 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>DealIQ — Hindsight Learning Agent</title>
-<link rel="stylesheet" href="./styles.css">
+<title>AEGIS — Code Immune System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-<main class="shell">
-<header>
-  <div><div class="eyebrow">HWH • HINDSIGHT HACKATHON</div><h1>DealIQ<span>↗</span></h1><p>Deal intelligence that gets smarter from every interaction.</p></div>
-  <div class="status" id="status">● Ready</div>
+<div class="app">
+<header class="topbar">
+  <div class="brand"><div class="logo">A</div><div><div class="brand-name">AEGIS</div><div class="brand-sub">CODE IMMUNE SYSTEM</div></div></div>
+  <div class="top-actions">
+    <div id="connection" class="connection"><i></i> Checking Hindsight…</div>
+    <button id="seedBtn" class="ghost">Load 12 historical failures</button>
+  </div>
 </header>
 
-<section class="hero">
-  <div class="hero-card">
-    <span class="pill">MEMORY-CENTRIC AGENT</span>
-    <h2>Don't make your sales team remember.</h2>
-    <p>Let the agent remember the deal — and learn what actually works.</p>
+<section class="headline">
+  <div class="eyebrow">HINDSIGHT HACKATHON • ENGINEERING AGENT</div>
+  <h1>Your codebase <span>learns</span> from failure.</h1>
+  <p>AEGIS remembers bugs, root causes, fixes and regressions — then uses that experience when the next failure arrives.</p>
+</section>
+
+<section class="hero-grid">
+  <div class="panel incident-panel">
+    <div class="section-top"><div><div class="kicker">01 / INCOMING FAILURE</div><h2>Analyze a new incident</h2></div><button id="exampleBtn" class="mini">Use example</button></div>
+    <label>Service</label>
+    <input id="service" value="payment-service">
+    <label>Production error / incident</label>
+    <textarea id="incident">Payment requests are timing out during a traffic spike. Database connection pool is at 100%, p95 latency is 8.9 seconds, and errors started after traffic doubled.</textarea>
+    <button id="analyzeBtn" class="primary">Run AEGIS diagnosis <span>↗</span></button>
   </div>
-  <div class="memory-flow">
-    <div><b>01</b><span>RETAIN<br><small>experience</small></span></div>
-    <div><b>02</b><span>RECALL<br><small>evidence</small></span></div>
-    <div><b>03</b><span>REFLECT<br><small>learning</small></span></div>
+
+  <aside class="panel memory-panel">
+    <div class="kicker">MEMORY ENGINE</div>
+    <div class="memory-core"><div class="ring">H</div><div><strong>Hindsight</strong><small>long-term engineering memory</small></div></div>
+    <div class="flow"><div><b>RETAIN</b><span>experience</span></div><div><b>RECALL</b><span>evidence</span></div><div><b>REFLECT</b><span>learning</span></div></div>
+    <div class="metric"><span>Memory bank</span><strong id="bankId">aegis-code-immune</strong></div>
+    <div class="metric"><span>Evidence found</span><strong id="evidenceCount">—</strong></div>
+    <button id="profileBtn" class="ghost wide">Show what AEGIS has learned</button>
+  </aside>
+</section>
+
+<section id="resultSection" class="hidden">
+  <div class="panel result-main">
+    <div class="result-head"><div><div class="kicker">02 / AEGIS RESPONSE</div><h2 id="patternTitle">Pattern detected</h2></div><span id="confidence" class="confidence">—</span></div>
+    <div class="diagnosis-grid">
+      <article><span>ROOT CAUSE</span><p id="rootCause">—</p></article>
+      <article><span>RISK</span><p id="risk">—</p></article>
+      <article class="wide-card"><span>RECOMMENDED FIX</span><p id="fix">—</p></article>
+      <article class="wide-card"><span>REGRESSION TEST</span><p id="regression">—</p></article>
+    </div>
+  </div>
+
+  <div class="panel evidence-panel">
+    <div class="result-head"><div><div class="kicker">03 / WHY AEGIS KNOWS</div><h2>Evidence from Hindsight</h2></div><span class="tiny">RECALL + REFLECT</span></div>
+    <div id="evidence" class="evidence-list"></div>
+    <div id="lesson" class="lesson"></div>
   </div>
 </section>
 
-<section class="grid">
-<div class="panel">
-  <div class="panel-head"><h3>New interaction</h3><button id="seedBtn">Load demo memory</button></div>
-  <label>Customer</label><input id="customer" value="Acme Corp">
-  <label>What happened?</label><textarea id="interaction" placeholder="Example: CFO objected to price. VP Engineering requested a 30-day pilot."></textarea>
-  <button class="primary" id="saveBtn">Save to Hindsight ↗</button>
-</div>
-<div class="panel">
-  <div class="panel-head"><h3>Ask DealIQ</h3><span class="tiny">LONG-TERM MEMORY ON</span></div>
-  <label>Customer</label><input id="adviceCustomer" value="Acme Corp">
-  <label>Question</label><textarea id="query" placeholder="How should I handle the next pricing objection?"></textarea>
-  <button class="primary" id="askBtn">Generate memory-aware advice ↗</button>
-</div>
+<section class="panel learn-panel">
+  <div class="section-top"><div><div class="kicker">04 / TEACH THE AGENT</div><h2>After the incident is resolved</h2></div><span class="tiny">RETAIN VERIFIED EXPERIENCE</span></div>
+  <div class="learn-grid">
+    <div><label>Confirmed root cause</label><textarea id="learnCause" placeholder="What actually caused it?"></textarea></div>
+    <div><label>Successful fix</label><textarea id="learnFix" placeholder="What change fixed it?"></textarea></div>
+    <div><label>Observed outcome</label><textarea id="learnOutcome" placeholder="What improved after the fix?"></textarea></div>
+    <div><label>Regression protection</label><textarea id="learnTest" placeholder="What test or alert stops this returning?"></textarea></div>
+  </div>
+  <button id="learnBtn" class="primary">Teach AEGIS what really happened <span>↗</span></button>
+  <div id="learnStatus" class="learn-status"></div>
 </section>
 
-<section class="panel">
-<div class="panel-head"><h3>Agent response</h3><span class="tiny" id="bank">Bank: —</span></div>
-<pre id="answer">Your memory-aware answer will appear here.</pre>
+<section id="profileSection" class="panel profile-panel hidden">
+  <div class="kicker">MEMORY PROFILE</div>
+  <h2>What the codebase has learned</h2>
+  <div id="profileText" class="profile-text"></div>
 </section>
 
-<section class="panel">
-<div class="panel-head"><h3>Learning evidence</h3><span class="tiny">WHY THIS RESPONSE CHANGED</span></div>
-<div class="learning-grid">
-<article><b>RECALL</b><p id="memory">No retrieval yet.</p></article>
-<article><b>REFLECT</b><p id="reflection">No reflection yet.</p></article>
+<footer>AEGIS • Hindsight is the memory layer, learning is the product</footer>
 </div>
-</section>
-</main>
-<script src="./app.js"></script>
+<script src="/app.js"></script>
 </body>
 </html>
