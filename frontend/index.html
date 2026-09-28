@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DealIQ — Hindsight Learning Agent</title>
+<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<main class="shell">
+<header>
+  <div><div class="eyebrow">HWH • HINDSIGHT HACKATHON</div><h1>DealIQ<span>↗</span></h1><p>Deal intelligence that gets smarter from every interaction.</p></div>
+  <div class="status" id="status">● Ready</div>
+</header>
+
+<section class="hero">
+  <div class="hero-card">
+    <span class="pill">MEMORY-CENTRIC AGENT</span>
+    <h2>Don't make your sales team remember.</h2>
+    <p>Let the agent remember the deal — and learn what actually works.</p>
+  </div>
+  <div class="memory-flow">
+    <div><b>01</b><span>RETAIN<br><small>experience</small></span></div>
+    <div><b>02</b><span>RECALL<br><small>evidence</small></span></div>
+    <div><b>03</b><span>REFLECT<br><small>learning</small></span></div>
+  </div>
+</section>
+
+<section class="grid">
+<div class="panel">
+  <div class="panel-head"><h3>New interaction</h3><button id="seedBtn">Load demo memory</button></div>
+  <label>Customer</label><input id="customer" value="Acme Corp">
+  <label>What happened?</label><textarea id="interaction" placeholder="Example: CFO objected to price. VP Engineering requested a 30-day pilot."></textarea>
+  <button class="primary" id="saveBtn">Save to Hindsight ↗</button>
+</div>
+<div class="panel">
+  <div class="panel-head"><h3>Ask DealIQ</h3><span class="tiny">LONG-TERM MEMORY ON</span></div>
+  <label>Customer</label><input id="adviceCustomer" value="Acme Corp">
+  <label>Question</label><textarea id="query" placeholder="How should I handle the next pricing objection?"></textarea>
+  <button class="primary" id="askBtn">Generate memory-aware advice ↗</button>
+</div>
+</section>
+
+<section class="panel">
+<div class="panel-head"><h3>Agent response</h3><span class="tiny" id="bank">Bank: —</span></div>
+<pre id="answer">Your memory-aware answer will appear here.</pre>
+</section>
+
+<section class="panel">
+<div class="panel-head"><h3>Learning evidence</h3><span class="tiny">WHY THIS RESPONSE CHANGED</span></div>
+<div class="learning-grid">
+<article><b>RECALL</b><p id="memory">No retrieval yet.</p></article>
+<article><b>REFLECT</b><p id="reflection">No reflection yet.</p></article>
+</div>
+</section>
+</main>
+<script src="./app.js"></script>
+</body>
+</html>
