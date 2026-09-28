@@ -79,7 +79,9 @@ Install:
 
 3. Internet access
    The application connects to Hindsight Cloud at:
-   https://api.hindsight.vectorize.io
+   ```text
+https://api.hindsight.vectorize.io
+```
 
 You do not need HydraDB or RocketRide to run the current MVP.
 
@@ -87,12 +89,16 @@ You do not need HydraDB or RocketRide to run the current MVP.
 
 Open PowerShell, Command Prompt, or a terminal:
 
-  git clone https://github.com/chidvielasparepalli/HWH.git
-  cd HWH
+```bash
+git clone https://github.com/chidvielasparepalli/HWH.git
+cd HWH
+```
 
 Verify:
 
-  git status
+```bash
+git status
+```
 
 ## 7. Create a virtual environment
 
@@ -107,8 +113,10 @@ If PowerShell blocks activation, use Command Prompt:
 
 macOS / Linux:
 
-  python3 -m venv .venv
-  source .venv/bin/activate
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
 
 After activation, the terminal should show .venv or a similar environment marker.
 
@@ -116,27 +124,37 @@ After activation, the terminal should show .venv or a similar environment marker
 
 Run:
 
-  pip install -r requirements.txt
+```bash
+pip install -r requirements.txt
+```
 
 Optional verification:
 
-  pip show hindsight-client
+```bash
+pip show hindsight-client
+```
 
 ## 9. Configure Hindsight Cloud
 
 Create the local environment file.
 
 Windows:
-  copy .env.example .env
+```powershell
+copy .env.example .env
+```
 
 macOS / Linux:
-  cp .env.example .env
+```bash
+cp .env.example .env
+```
 
 Open .env and set:
 
-  HINDSIGHT_URL=https://api.hindsight.vectorize.io
-  HINDSIGHT_API_KEY=YOUR_HINDSIGHT_API_KEY
-  HINDSIGHT_BANK_ID=aegis-code-immune
+```dotenv
+HINDSIGHT_URL=https://api.hindsight.vectorize.io
+HINDSIGHT_API_KEY=YOUR_HINDSIGHT_API_KEY
+HINDSIGHT_BANK_ID=aegis-code-immune
+```
 
 Use the Hindsight API key provided to your team.
 
@@ -145,7 +163,9 @@ Never commit .env to GitHub. The repository already ignores .env through .gitign
 
 Before pushing code, run:
 
-  git status
+```bash
+git status
+```
 
 .env should not appear as an untracked file.
 
@@ -153,11 +173,15 @@ Before pushing code, run:
 
 From the HWH project root:
 
-  uvicorn backend.main:app --reload
+```bash
+uvicorn backend.main:app --reload
+```
 
 Successful startup should show a local address similar to:
 
-  http://127.0.0.1:8000
+```text
+http://127.0.0.1:8000
+```
 
 Keep this terminal running.
 
@@ -165,7 +189,9 @@ Keep this terminal running.
 
 Open:
 
-  http://127.0.0.1:8000
+  ```text
+http://127.0.0.1:8000
+```
 
 The dashboard should load.
 
@@ -324,24 +350,34 @@ Start server:
   uvicorn backend.main:app --reload
 
 Use another port:
-  uvicorn backend.main:app --reload --port 8080
+```bash
+uvicorn backend.main:app --reload --port 8080
+```
 
 Check Git state:
   git status
 
 Upgrade dependencies:
-  pip install -r requirements.txt --upgrade
+```bash
+pip install -r requirements.txt --upgrade
+```
 
 Deactivate the virtual environment:
-  deactivate
+```bash
+deactivate
+```
 
 ## 21. Troubleshooting
 
 ### Python not found
 
 Check:
-  python --version
-  py --version
+```bash
+python --version
+```
+```powershell
+py --version
+```
 
 If py works on Windows, create the environment with:
   py -m venv .venv
@@ -371,7 +407,9 @@ Start the site through FastAPI:
   uvicorn backend.main:app --reload
 
 Then open:
-  http://127.0.0.1:8000
+  ```text
+http://127.0.0.1:8000
+```
 
 Do not open frontend/index.html directly with a file URL for the full application flow.
 
@@ -425,19 +463,27 @@ If a key is ever committed accidentally, revoke it immediately and replace it.
 ## 24. Git workflow
 
 Pull latest changes:
-  git pull origin main
+```bash
+git pull origin main
+```
 
 Review changes:
   git status
 
 Stage:
-  git add .
+```bash
+git add .
+```
 
 Commit:
-  git commit -m "Update AEGIS"
+```bash
+git commit -m "Update AEGIS"
+```
 
 Push:
-  git push origin main
+```bash
+git push origin main
+```
 
 Before pushing, make sure .env is not included.
 
