@@ -1,5 +1,4 @@
-fastapi
-uvicorn[standard]
-python-dotenv
-httpx
-pydantic
+fastapi>=0.115
+uvicorn[standard]>=0.30
+python-dotenv>=1.0
+hindsight-client>=0.10
