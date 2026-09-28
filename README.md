@@ -115,23 +115,28 @@ git status
 
 ## 7. Create a virtual environment
 
-Windows PowerShell:
+### Windows PowerShell
 
-  python -m venv .venv
-  .venv\Scripts\Activate.ps1
+```powershell
+python -m venv .venv
+.venv\\Scripts\\Activate.ps1
+```
 
-If PowerShell blocks activation, use Command Prompt:
+### Windows Command Prompt
 
-  .venv\Scripts\activate
+```cmd
+python -m venv .venv
+.venv\\Scripts\\activate
+```
 
-macOS / Linux:
+### macOS / Linux
 
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
 ```
 
-After activation, the terminal should show .venv or a similar environment marker.
+After activation, your terminal should show the virtual environment name, such as `.venv`.
 
 ## 8. Install dependencies
 
